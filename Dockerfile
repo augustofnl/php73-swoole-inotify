@@ -15,7 +15,7 @@ RUN set -ex \
     && docker-php-source delete \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) pgsql pdo_mysql pdo_pgsql intl zip gd \
+    && docker-php-ext-install -j$(nproc) pgsql pdo_mysql pdo_pgsql intl zip gd pcntl \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && cd  / && rm -fr /src \
     && apk del build-dependencies \
